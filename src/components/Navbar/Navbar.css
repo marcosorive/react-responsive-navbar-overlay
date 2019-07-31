@@ -55,15 +55,57 @@ nav>h3{
 }
 
 /*Overlay menu classes */
-.overlay-menu{
+.overlay-container{
     position: fixed;
     background-color: black;
-    opacity: .85;
+    opacity: 0.9;
     top:0;
     right: 0;
     bottom: 0;
     width: 100%;
     z-index: 1;
+}
+
+.overlay-buttonClose{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-right: .5em;
+    font-size: 4em;
+}
+
+.overlay-menu-wrapper{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.overlay-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 10em;
+}
+
+.overlay-menu a{
+    font-size: 3em;
+    font-weight: 100;
+    text-decoration: none;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.overlay-menu a:hover, .overlay-menu a:focus {
+    color: #f1f1f1;
+  }
+
+.overlay-menu-item:not(:last-child){
+    margin-bottom: .3em;
 }
 
 .slideIn-enter {
