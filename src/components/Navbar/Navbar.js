@@ -32,7 +32,7 @@ export class Navbar extends React.Component{
                 </div> 
             </nav>
             <CSSTransition in={!this.state.isMenuClosed} className="overlay-container" timeout={800} classNames="slideIn" mountOnEnter unmountOnExit>
-                <div>
+                <div style={{backgroundColor: this.props.backgroundColor}}>
                     <div className="overlay-buttonClose" onClick={this.toggleMenu}><span>&times;</span></div>
                     <div className="overlay-menu-wrapper">
                         <div className="overlay-menu">
