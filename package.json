@@ -1,12 +1,13 @@
 {
   "name": "react-responsive-navbar-overlay",
+  "description": "A simple top responsive navbar that becomes an overlay menu in small screens (less than 600px)",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "author": "Marcos Orive Izarra",
   "license": "MIT",
   "main": "dist/index.js",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "repository": {
     "type": "git",
