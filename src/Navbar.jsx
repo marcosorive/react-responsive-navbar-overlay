@@ -1,5 +1,4 @@
 import React from 'react';
-import {CSSTransition} from 'react-transition-group';
 import './Navbar.css'
 import {Link} from 'react-router-dom';
 
@@ -31,7 +30,7 @@ export class Navbar extends React.Component{
                     })}
                 </div> 
             </nav>
-            <CSSTransition in={!this.state.isMenuClosed} className="overlay-container" timeout={800} classNames="slideIn" mountOnEnter unmountOnExit>
+            <div className={`overlay-container${this.state.isMenuClosed ? "-hidden" : "-show"}`}>
                 <div style={{backgroundColor: this.props.backgroundColor}}>
                     <div className="overlay-buttonClose" onClick={this.toggleMenu}><span>&times;</span></div>
                     <div className="overlay-menu-wrapper">
@@ -42,7 +41,7 @@ export class Navbar extends React.Component{
                         </div>
                     </div>
                 </div>
-            </CSSTransition>
+            </div>
         </div>
         )
     }
