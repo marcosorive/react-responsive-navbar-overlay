@@ -1,50 +1,42 @@
-import React from 'react';
-import './Navbar.css'
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-export class Navbar extends React.Component{
+import './Navbar.css'
 
-    constructor(props){
-        super(props)
-        this.state = {
-            isMenuClosed: true
-        }
-        this.toggleMenu = this.toggleMenu.bind(this);
-    }
+export function Navbar({
+    backgroundColor,
+    fontColor,
+    brand,
+    links
+}){
 
-    toggleMenu(){
-        this.setState({
-            isMenuClosed : !this.state.isMenuClosed
-        })
-    }
+    const [isMenuClosed, setMenuClosed] = useState(true);
 
-    render(){
-        return(
-            <div className="nav-container" style={{backgroundColor: this.props.backgroundColor, color: this.props.fontColor}}>
-            <nav>
-                <div className="nav-brand">{this.props.brand}</div>
-                <div className="nav-hamburguer-icon" onClick={this.toggleMenu}>☰</div>
-                <div className="nav-links">
-                    {this.props.links.map((node) =>{
-                        return(<Link key={node.text} to={node.link} style={{color: this.props.fontColor}}>{node.text}</Link>);
-                    })}
-                </div> 
-            </nav>
-            <div className={`overlay-container${this.state.isMenuClosed ? "-hidden" : "-show"}`}>
-                <div style={{backgroundColor: this.props.backgroundColor}}>
-                    <div className="overlay-buttonClose" onClick={this.toggleMenu}><span>&times;</span></div>
-                    <div className="overlay-menu-wrapper">
-                        <div className="overlay-menu">
-                            {this.props.links.map((node) =>{
-                                return(<Link key={node.text} to={node.link} onClick={this.toggleMenu} className="overlay-menu-item" style={{color: this.props.fontColor}}>{node.text}</Link>);
-                            })}
-                        </div>
+    return(
+        <div className="nav-container" style={{backgroundColor: backgroundColor, color: fontColor}}>
+        <nav>
+            <div className="nav-brand">{brand}</div>
+            <div className="nav-hamburguer-icon" onClick={() => setMenuClosed(!isMenuClosed)}>☰</div>
+            <div className="nav-links">
+                {links.map((node) =>{
+                    return(<Link key={node.text} to={node.link} style={{color: fontColor}}>{node.text}</Link>);
+                })}
+            </div> 
+        </nav>
+        <div className={`overlay-container${isMenuClosed ? "-hidden" : "-show"}`}>
+            <div style={{backgroundColor: backgroundColor}}>
+                <div className="overlay-buttonClose" onClick={() => setMenuClosed(!isMenuClosed)}><span>&times;</span></div>
+                <div className="overlay-menu-wrapper">
+                    <div className="overlay-menu">
+                        {links.map((node) =>{
+                            return(<Link key={node.text} to={node.link} onClick={() => setMenuClosed(!isMenuClosed)} className="overlay-menu-item" style={{color: fontColor}}>{node.text}</Link>);
+                        })}
                     </div>
                 </div>
             </div>
         </div>
-        )
-    }
+    </div>
+    )
 }
 
 Navbar.defaultProps = {
