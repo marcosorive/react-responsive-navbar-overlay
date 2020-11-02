@@ -33,3 +33,11 @@ function myComponent(){
     * Default: "Navbar"
 * **links**: the text and links of the right links.
     * Default: "Home" to /, "Portfolio" to /portfolio and "Blog" to /blog
+
+## Screenshots 
+
+![Default navbar screenshot](/screenshots/expanded.PNG "Default navbar (No props, screen more than 600px)")
+
+![Collapsed navbar screenshot, menu closed.](/screenshots/collapsed.PNG "Default navbar collapsed, menu closed (No props, screen less than 600px)")
+
+![Collapsed navbar screenshot, menu open.](/screenshots/collapsed_1.PNG "Default navbar collapsed, menu open (No props, screen less than 600px)")
