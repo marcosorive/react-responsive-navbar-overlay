@@ -3,3 +3,4 @@ node_modules
 screenshots
 .babelrc
 .gitignore
+webpack.config.js
