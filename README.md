@@ -8,7 +8,7 @@ In screens with more than 600px it displays a regular navbar. In smaller screens
 Import the component and put it inside a Router from react-router-dom, like this:
 
 ```javascript
-import {BrowserRouter, Route} from 'react-router-drom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import {Navbar} from 'react-responsive-navbar-overlay';
 function myComponent(){
     return(
