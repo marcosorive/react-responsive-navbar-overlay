@@ -5,7 +5,13 @@ In screens with more than 600px it displays a regular navbar. In smaller screens
 
 ## How to use
 
-Import the component and put it inside a Router from react-router-dom, like this:
+Import the component and put it inside a Router from react-router-dom.
+Let's say you have the following routes:
+- Home (/)
+- About me (/about)
+- Contact (/contact)
+
+Then the usage would be the following:
 
 ```javascript
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -13,11 +19,17 @@ import {Navbar} from 'react-responsive-navbar-overlay';
 function myComponent(){
     return(
         <BrowserRouter>
-            <Navbar/>
+            <Navbar
+                links={[
+                    {text: "Home", link:"/"},
+                    {text: "About me", link:"/about"},
+                    {text: "Contact", link:"/contact"}
+                ]}
+            />
             /* These are the default routes, if you change the properties change the routes too. */
-            <Route exact path="/" component={Home} />
-            <Route path="/portfolio" component={Portfolio} />
-            <Route path="/blog" component={Blog} />
+            <Route exact path="/" component={HomeComponent} />
+            <Route path="/about" component={AboutComponent} />
+            <Route path="/contact" component={ContactComponent} />
         </BrowserRouter>
     )
 }    
